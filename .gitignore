@@ -12,7 +12,7 @@ web_modules/
 
 # blitz
 /.blitz/
-/.next/
+# /.next/
 *.sqlite
 *.sqlite-journal
 .now
