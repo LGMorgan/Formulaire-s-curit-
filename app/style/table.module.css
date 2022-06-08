@@ -1,0 +1,83 @@
+.table {
+  width: 100%;
+  border-radius: 5px;
+  padding-bottom: 30px;
+}
+
+.tHead {
+  background-color: yellow;
+}
+
+.tr {
+  border-radius: 5px;
+  transition: all 0.08s;
+  border-bottom: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.trMain {
+  border-radius: 5px;
+  transition: all 0.08s;
+  border-bottom: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.trMain:hover {
+  background-color: #ffd803;
+}
+
+.td {
+  margin: 0px;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.td:last-child {
+  text-align: right;
+}
+.td:first-child {
+  text-align: left;
+}
+.tr:last-child {
+  border-bottom: 0;
+}
+
+.tBody {
+  border-collapse: collapse;
+}
+
+.searchDiv {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid rgb(185, 185, 185);
+  border-radius: 5px;
+  position: sticky;
+  top: 85px;
+  box-shadow: 0px 5px 20px -15px black;
+  z-index: 100;
+}
+.dashboardSearchDiv {
+  border-radius: 5px;
+  position: sticky;
+  top: 85px;
+
+  z-index: 100;
+}
+
+.searchInput {
+  width: 100%;
+  font-size: 1.1rem;
+  border: 0;
+}
+.searchInput:focus {
+  outline: none;
+}
+
+.sectionTitle {
+  font-size: large;
+
+  font-weight: 700;
+}

@@ -1,6 +1,8 @@
-import { Head } from "blitz"
+import { Head, BlitzLayout, useMutation, useRouter } from "blitz"
+import logout from "app/auth/mutations/logout"
 
 const Layout = ({ title, children }) => {
+  const [logoutMutation] = useMutation(logout)
   return (
     <>
       <Head>
@@ -12,5 +14,5 @@ const Layout = ({ title, children }) => {
     </>
   )
 }
-
+Layout.authenticate = { redirectTo: "/" }
 export default Layout

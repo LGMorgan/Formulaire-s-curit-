@@ -1,0 +1,44 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #272343;
+  margin: 0 auto;
+  background-color: #fffffe;
+  position: relative;
+}
+
+main {
+  max-width: 680px;
+  margin: 30px auto 0px auto;
+}
+
+@media (max-width: 700px) {
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  main {
+    padding: 0px 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

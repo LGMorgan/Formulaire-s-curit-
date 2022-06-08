@@ -2,12 +2,32 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
+}
+
+enum Niveau {
+  GLOBAL
+  A
+  B
+  C
+}
+
+enum BoatType {
+  NONE
+  PROTO
+  SERIE
+}
+
+enum AnswerType {
+  OK
+  TEXT
+  NUMBER
+  CLOSED
 }
 
 // --------------------------------------
@@ -63,3 +83,48 @@ model Token {
 // enum TokenType {
 //   RESET_PASSWORD
 // }
+
+model Section {
+  id        Int        @id @default(autoincrement())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  name      String?
+  nameEn    String?
+  question  Question[]
+  level     Niveau     @default(GLOBAL)
+  index     Int        @unique @default(autoincrement())
+}
+
+model Question {
+  id              Int        @id @default(autoincrement())
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  text            String
+  placeholder     String?
+  textEn          String?
+  placeHolderEn   String?
+  answerType      AnswerType @default(OK)
+  section         Section    @relation(fields: [sectionId], references: [id])
+  sectionId       Int        @default(0)
+  level           Niveau     @default(GLOBAL)
+  rule            String?
+  details         String?
+  detailsEn       String?
+  duoSensitive    Boolean    @default(false)
+  expectedAnswers Json?
+  disabled        Boolean    @default(false)
+  boatTypeFilter  BoatType   @default(NONE)
+  index           Int        @default(autoincrement())
+  anchor          String?    @unique
+}
+
+model Sheet {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  boatId      Int      @unique
+  skipperName String?
+  boatType    BoatType @default(SERIE)
+  form        Json
+  completed   Boolean  @default(false)
+}

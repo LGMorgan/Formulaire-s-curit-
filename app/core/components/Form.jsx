@@ -1,6 +1,10 @@
-import { Form as FinalForm } from "react-final-form"
+import { ReactNode, PropsWithoutRef } from "react"
+import { Form as FinalForm, FormProps as FinalFormProps } from "react-final-form"
+import { z } from "zod"
 import { validateZodSchema } from "blitz"
 export { FORM_ERROR } from "final-form"
+import { Button } from "@mantine/core"
+
 export function Form({ children, submitText, schema, initialValues, onSubmit, ...props }) {
   return (
     <FinalForm
@@ -13,20 +17,15 @@ export function Form({ children, submitText, schema, initialValues, onSubmit, ..
           {children}
 
           {submitError && (
-            <div
-              role="alert"
-              style={{
-                color: "red",
-              }}
-            >
+            <div role="alert" style={{ color: "red" }}>
               {submitError}
             </div>
           )}
 
           {submitText && (
-            <button type="submit" disabled={submitting}>
+            <Button compact style={{ width: "100%" }} type="submit" disabled={submitting}>
               {submitText}
-            </button>
+            </Button>
           )}
 
           <style global jsx>{`
@@ -39,4 +38,5 @@ export function Form({ children, submitText, schema, initialValues, onSubmit, ..
     />
   )
 }
+
 export default Form

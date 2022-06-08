@@ -1,0 +1,23 @@
+.div {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  flex-wrap: ;
+  padding: 10px;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.sectionButton {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: white;
+}
+
+.sectionButton:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
